@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## jekyll-theme-H2O
 
 ### Preview
@@ -438,3 +439,7 @@ Any types of contribution are welcome. Thanks.
 ### License 许可证
 
 Jekyll-Theme-H2O is licensed under [MIT](https://github.com/kaeyleo/jekyll-theme-H2O/blob/master/LICENSE).
+=======
+# ghost-theme-H2O
+ghost compatible H2O theme, fork from kaeyleo/jekyll-theme-H2O.
+>>>>>>> Initial commit
