@@ -1,0 +1,95 @@
+{{!-- This is the config --}}
+{{!--
+	完整主题配置请参见README。以下为默认配置说明（默认配置可以在entry.hbs中找到）：
+	Please read the README file first. Here is the description of default settings(you can find it in entry.hbs):
+
+	========
+	默认用户设置
+
+	# 是否使用ghost用户作为默认用户
+	default_author_in_ghost=false
+
+
+	# 指定作为默认用户的ghost用户slug
+	# 若default_author_in_ghost为true，请设置此项
+	default_author_slug="ghost"
+
+	# 指定默认用户的个人信息
+	# 若default_author_in_ghost为false，请设置以下各项
+	#   头像
+	default_author_avatar="assets/img/profile.png"
+	#   用户名
+	default_author_name=""
+	#   签名
+	default_author_bio=""
+	#   社交网站地址，不显示请留空
+	default_author_sns_weibo=""
+	default_author_sns_zhihu=""
+	default_author_sns_twitter=""
+	default_author_sns_instagrame=""
+	default_author_sns_juejin=""
+	default_author_sns_github=""
+	default_author_sns_douban=""
+	default_author_sns_facebook=""
+	default_author_sns_dribble=""
+	default_author_sns_uicn=""
+	default_author_sns_jianshu=""
+	default_author_sns_medium=""
+	default_author_sns_linkedin=""
+
+	========
+	用户行为设置
+
+	# 是否关闭ghost用户系统，使得全站显示为此处设置的默认用户
+	disable_ghost_author=true
+
+	========
+	标签推荐设置
+
+	# 是否启用标签推荐面板
+	recommend_tags=true
+
+	# 最大推荐数量
+	recommend_condition_size=12
+
+	========
+	主题个性化设置
+
+	# 是否开启夜间模式
+	nightMode=true
+
+	# 颜色主题
+	theme_color="default"
+
+	# 标题图纹理
+	postPatterns="circuitBoard"
+
+	========
+	社交评论设置
+
+	# 是否开启disqus评论系统
+	disqus=false
+	# disqus评论系统的url
+	disqus_url="https://YOUR_DISQUS_DOMAIN.disqus.com/embed.js"
+
+	# 是否开启文章分享
+	social_share=true
+	# 分享到社交媒体
+	social_share_items="'wechat','weibo','douban','twitter'"
+
+	========
+
+	以下为主题配置部分，请将您需要修改的配置填写在下面：
+	Please write your configurations bolow:
+--}}
+
+
+{{> "layouts/default"
+	default_author_name="邓布利多"
+	default_author_bio="Nitwit! Blubber! Oddment! Tweak!"
+	default_author_sns_zhihu="//zhihu.com/Dumbledore"
+	default_author_sns_facebook="//facebook.com/Dumbledore"
+	default_author_sns_linkedin="//linkedin.com/Dumbledore"
+
+	nightMode=false
+}}

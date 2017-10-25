@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    
+
     /**
      * Responsive Navigation
-     */ 
+     */
     $('#menu-toggle').on('click', function(e){
 
         $('.g-nav').slideToggle(200);
@@ -17,7 +17,7 @@ $(document).ready(function(){
     $('.g-nav').on('click', function(e){
         e.stopPropagation();
     });
-    
+
     /*
     *  Header Bar
     */
@@ -135,9 +135,9 @@ $(document).ready(function(){
 
         var link_html = '';
 
-        for(var i = current - limit; i<current; i++) { 
+        for(var i = current - limit; i<current; i++) {
             if(i>0 && i!==1) {
-                link_html += '<a href="' + baseUrl + 'page' + i + '" class="page-link page-num">' + i + '</a>';
+                link_html += '<a href="' + baseUrl + i + '" class="page-link page-num">' + i + '</a>';
             }else if(i===1) {
                 link_html += '<a href="' + baseUrl + '" class="page-link page-num">' + i + '</a>';
             }
@@ -145,24 +145,24 @@ $(document).ready(function(){
 
         link_html += '<span class="page-link page-num active">' + current + '</span>';
 
-        for(var j = current + 1; j<=current + limit; j++) { 
+        for(var j = current + 1; j<=current + limit; j++) {
             if(j<=total) {
-                link_html += '<a href="' + baseUrl + 'page' + j + '" class="page-link page-num">' + j + '</a>';
+                link_html += '<a href="' + baseUrl + j + '" class="page-link page-num">' + j + '</a>';
             }
         }
-        
+
         $('#page-link-container').html(link_html);
     }
     pagination();
 
     /**
      * Search
-     */  
+     */
     function Search() {
         var self = this,
             input = $('#search_input'),
             result = $('.search_result');
-        
+
         input.focus(function() {
             $('.icon-search').css('color', '#3199DB');
             result.show();
@@ -181,7 +181,7 @@ $(document).ready(function(){
 
     Search.prototype.autoComplete = function() {
         var keywords = this.value.toLowerCase();
-        
+
         if(keywords.length) {
             $('.icon-search').css('color', '#3199DB');
         }else{
@@ -236,7 +236,7 @@ $(document).ready(function(){
             el.addClass(className);
         }
     }
-    
+
     if($('#nm-switch').val() === 'true') {
         nightMode();
     }
@@ -250,7 +250,7 @@ $(document).ready(function(){
             var data = window.clipboardData || e.originalEvent.clipboardData;
             data.setData('text/plain', str);
             e.preventDefault();
-        }); 
+        });
     }
     $('.post-content').on('mouseup', function(e) {
         var txt = window.getSelection();
@@ -258,5 +258,5 @@ $(document).ready(function(){
             setClipboardData(txt);
         }
     });
-    
+
 });

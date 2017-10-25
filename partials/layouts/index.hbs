@@ -1,0 +1,90 @@
+{{!-- This is the index layout --}}
+<div class="g-banner home-banner banner-theme-{{theme_color}}" data-theme="{{theme_color}}">
+    <h2>
+        {{#if @blog.logo}}
+            <img class="site-logo" src="{{@blog.logo}}" alt="{{@blog.title}}" />
+        {{else}}
+            {{@blog.title}}
+        {{/if}}
+    </h2>
+    <h3>{{@blog.description}}</h3>
+    {{#if tag.feature_image}}
+        <img class="header-img" src="{{img_url tag.feature_image}}" alt="">
+    {{else if @blog.cover_image}}
+        <img class="header-img" src="{{@blog.cover_image}}" alt="">
+    {{/if}}
+</div>
+
+<main class="g-container home-content">
+    <div class="article-list">
+        {{#foreach posts}}
+            <article class="article-item">
+                {{#if feature_image}}
+                <div class="post-cover">
+                    <a class="post-link" href="{{url}}" title="{{title}}"></a>
+                    <img src="{{feature_image}}" alt="">
+                </div>
+                {{/if}}
+                <section class="post-preview">
+                    <a class="post-link" href="{{url}}" title="{{title}}"></a>
+                    <h2 class="post-title">{{title}}</h2>
+
+                    {{!--
+                    {% if post.subtitle %}
+                    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                    {% endif %}
+                    {% if post.subtitle.size==0 or post.subtitle==nil %}
+                    <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 126}}</p>
+                    {% endif %}
+                    --}}
+                </section>
+                <footer class="post-meta">
+                    <div class="post-tags">
+                        {{#if tags}}
+                            {{#foreach tags}}
+                            <a href="{{url}}" class="post-tag">{{ name }}</a>
+                            {{/foreach}}
+                        {{/if}}
+                    </div>
+                    <time class="post-date" datetime="{{date published_at format="MMMM DD, YYYY"}}">{{date published_at format="MMMM DD, YYYY"}}</time>
+                </footer>
+            </article>
+        {{/foreach}}
+
+        {{pagination}}
+    </div>
+
+    <aside class="g-sidebar-wrapper">
+        {{#if rightside}}
+            {{> (lookup . 'rightside')}}
+        {{else}}
+            <div class="g-sidebar">
+                <section class="author-card">
+                    {{> author}}
+                </section>
+                {{#if recommend_tags}}
+                    {{#get "tags" limit=recommend_condition_size}}
+                        {{#if tags}}
+                            <section class="tags-card">
+                                {{#foreach tags}}
+                                    <a href="{{url}}" class="tag" >{{name}}</a>
+                                {{/foreach}}
+                            </section>
+                        {{/if}}
+                    {{/get}}
+                {{/if}}
+            </div>
+
+            {{!--
+            {% if site.search %}
+            <div class="search-card">
+                <input id="search_input" type="text" placeholder="Search...">
+                <i class="iconfont icon-search"></i>
+                <div class="search_result"></div>
+            </div>
+            {% endif %}
+            --}}
+        {{/if}}
+    </aside>
+
+</main>

@@ -1,0 +1,31 @@
+{{!-- This is the default layout --}}
+<!DOCTYPE html>
+<html>
+    {{!-- head section --}}
+    {{> "head"}}
+
+    <body class="{{body_class}}">
+        <!--[if lt IE 10]>
+            <div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+        <![endif]-->
+
+        {{!-- header section --}}
+        {{> "header"}}
+
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        {{> "layouts/route"}}
+
+        {{!-- footer section --}}
+        {{> "footer"}}
+
+        <input id="nm-switch" type="hidden" value="{{nightMode}}">
+
+        <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+        <script src="{{asset "assets/js/prism.js"}}"></script>
+        <script src="{{asset "assets/js/index.min.js"}}"></script>
+
+        {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+        {{ghost_foot}}
+
+    </body>
+</html>

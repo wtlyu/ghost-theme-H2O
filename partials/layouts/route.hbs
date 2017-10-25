@@ -1,0 +1,22 @@
+{{!-- This is the route layout. You can add your specific page layouts here. --}}
+{{#is "index"}}
+	{{#is "home"}}{{/is}}
+
+    {{> "layouts/index"}}
+{{/is}}
+
+{{#is "tag"}}
+    {{> "layouts/index" rightside="tagcard"}}
+{{/is}}
+
+{{#is "author"}}
+    {{> "layouts/index"}}
+{{/is}}
+
+{{#is "post"}}
+    {{> "layouts/post"}}
+{{/is}}
+
+{{#is "page"}}
+    {{> "layouts/post"}}
+{{/is}}

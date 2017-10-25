@@ -1,0 +1,137 @@
+{{!-- This is the post layout --}}
+{{#post}}
+    <header class="g-banner post-header post-pattern-{{../postPatterns}} bgcolor-{{../theme_color}} {{#unless feature_image}}post-no-cover{{/unless}}" data-theme="{{../theme_color}}">
+        <div class="post-wrapper">
+            <div class="post-tags">
+                {{# if tags}}
+                    {{#foreach tags}}
+                        <a href="{{url}}" class="post-tag">{{name}}</a>
+                    {{/foreach}}
+                {{/if}}
+            </div>
+            <h1>{{title}}</h1>
+            <div class="post-meta">
+                <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="{{@blog.url}}" target="_blank" rel="author">{{#if author}}{{author}}{{/if}}</a></></span>
+                <time class="post-meta-item" datetime="{{date published_at format="MMMM DD, YYYY"}}"><i class="iconfont icon-date"></i>{{date published_at format="MMMM DD, YYYY"}}</time>
+            </div>
+        </div>
+        {{#if feature_image }}
+        <div class="filter"></div>
+        <div class="post-cover" style="background: url('{{feature_image}}') center no-repeat; background-size: cover;">
+        {{/if}}
+    </header>
+
+    <div class="post-content {{post_class}}">
+        {{!--
+            {% if page.subtitle %}
+            <h2 class="post-subtitle">{{ page.subtitle }}</h2>
+            {% endif %}
+        --}}
+
+        <article class="markdown-body">
+            {{content}}
+        </article>
+
+        {{#if ../social_share}}
+            <div class="social-share-wrapper">
+                <div class="social-share"></div>
+            </div>
+        {{/if}}
+    </div>
+
+    <section class="author-detail">
+        <section class="post-footer-item author-card">
+            {{> author
+                default_author_in_ghost=../default_author_in_ghost
+                default_author_slug=../default_author_slug
+                default_author_avatar=../default_author_avatar
+                default_author_name=../default_author_name
+                default_author_bio=../default_author_bio
+                default_author_sns_weibo=../default_author_sns_weibo
+                default_author_sns_zhihu=../default_author_sns_zhihu
+                default_author_sns_twitter=../default_author_sns_twitter
+                default_author_sns_instagrame=../default_author_sns_instagrame
+                default_author_sns_juejin=../default_author_sns_juejin
+                default_author_sns_github=../default_author_sns_github
+                default_author_sns_douban=../default_author_sns_douban
+                default_author_sns_facebook=../default_author_sns_facebook
+                default_author_sns_dribble=../default_author_sns_dribble
+                default_author_sns_uicn=../default_author_sns_uicn
+                default_author_sns_jianshu=../default_author_sns_jianshu
+                default_author_sns_medium=../default_author_sns_medium
+                default_author_sns_linkedin=../default_author_sns_linkedin
+                disable_ghost_author=../disable_ghost_author
+            }}
+        </section>
+
+        <section class="post-footer-item read-next">
+            {{#next_post}}
+                <div class="read-next-item">
+                    <a href="{{url}}" class="read-next-link"></a>
+                    <section>
+                        <span>{{title}}</span>
+                        <p>{{excerpt characters="200"}}</p>
+                    </section>
+                    {{#if feature_image}}
+                    <div class="filter"></div>
+                    <img src="{{img_url feature_image}}" alt="">
+                    {{/if}}
+                </div>
+            {{/next_post}}
+
+            {{#prev_post}}
+                <div class="read-next-item">
+                    <a href="{{url}}" class="read-next-link"></a>
+                    <section>
+                        <span>{{title}}</span>
+                        <p>{{excerpt characters="200"}}</p>
+                    </section>
+                    {{#if feature_image}}
+                    <div class="filter"></div>
+                    <img src="{{img_url feature_image}}" alt="">
+                    {{/if}}
+                </div>
+            {{/prev_post}}
+        </section>
+
+        {{#if ../disqus}}
+            <section class="post-footer-item comment">
+                <div id="disqus_thread"></div>
+            </section>
+        {{/if}}
+    </section>
+{{/post}}
+
+
+{{#if disqus}}
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+            this.page.url = {{post.url}};  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = {{post.id}}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            /*写入自己的disqus信息*/
+            s.src = '{{disqus_url}}';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{{/if}}
+
+{{#if social_share}}
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: [{{{social_share_items}}}],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+{{/if}}

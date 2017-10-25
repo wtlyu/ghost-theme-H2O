@@ -70,7 +70,7 @@ $post-content-w: 720px;
 
 @mixin authorCard {
     text-align: center;
-    
+
     .avatar {
         width: 70px;
         height: 70px;
@@ -112,6 +112,24 @@ $post-content-w: 720px;
                 line-height: 30px;
             }
             @include snsIcon;
+        }
+    }
+}
+
+@mixin tagCard {
+    text-align: center;
+
+    .tag-name {
+        width: 100%;
+        font-size: 16px;
+        color: $color-f-primary;
+        font-weight: 500;
+        margin: 12px 0 6px;
+    }
+    .description {
+        p {
+            font-size: 14px;
+            line-height: 20px;
         }
     }
 }
@@ -182,7 +200,7 @@ $post-content-w: 720px;
     .icon-medium:hover {
         color: #0BE370;
     }
-    
+
 }
 
 @mixin postHeaderPattern($shape) {

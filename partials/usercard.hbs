@@ -1,0 +1,91 @@
+<div class="avatar">
+    {{#if avatar}}
+        <img src="{{asset avatar}}" alt="">
+    {{else}}
+        <img src="{{img_url profile_image}}" alt="">
+    {{/if}}
+</div>
+<div class="author-name" rel="author">{{name}}</div>
+<div class="bio">
+    <p>{{bio}}</p>
+</div>
+
+<ul id="sns-links" class="sns-links">
+    {{#if weibo}}
+        <li><a href="{{weibo}}" target="_blank">
+            <i class="iconfont icon-weibo"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if zhihu}}
+        <li><a href="{{zhihu}}" target="_blank">
+            <i class="iconfont icon-zhihu"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if twitter}}
+        <li><a href="{{#if twitter_static}}{{twitter}}{{else}}{{twitter_url}}{{/if}}" target="_blank">
+            <i class="iconfont icon-twitter"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if instagrame}}
+        <li><a href="{{instagrame}}" target="_blank">
+            <i class="iconfont icon-instagrame"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if juejin}}
+        <li><a href="{{juejin}}" target="_blank">
+            <i class="iconfont icon-juejin"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if github}}
+        <li><a href="{{github}}" target="_blank">
+            <i class="iconfont icon-github"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if douban}}
+        <li><a href="{{douban}}" target="_blank">
+            <i class="iconfont icon-douban"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if facebook}}
+        <li><a href="{{#if facebook_static}}{{facebook}}{{else}}{{facebook_url}}{{/if}}" target="_blank">
+            <i class="iconfont icon-facebook"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if dribble}}
+        <li><a href="{{dribble}}" target="_blank">
+            <i class="iconfont icon-dribble"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if uicn}}
+        <li><a href="{{uicn}}" target="_blank">
+            <i class="iconfont icon-uicn"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if jianshu}}
+        <li><a href="{{jianshu}}" target="_blank">
+            <i class="iconfont icon-jianshu"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if medium}}
+        <li><a href="{{medium}}" target="_blank">
+            <i class="iconfont icon-medium"></i>
+        </a></li>
+    {{/if}}
+
+    {{#if linkedin}}
+        <li><a href="{{linkedin}}" target="_blank">
+            <i class="iconfont icon-linkedin"></i>
+        </a></li>
+    {{/if}}
+</ul>

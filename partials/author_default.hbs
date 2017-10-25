@@ -1,0 +1,39 @@
+{{#if default_author_in_ghost}}
+    {{#if default_author_slug}}
+        {{#get "users" slug=default_author_slug as |author|}}
+            {{#author}}
+                {{> usercard
+                    profile_image=profile_image
+                    name=name
+                    bio=bio
+                    website=website
+                    facebook=facebook
+                    twitter=twitter
+                }}
+            {{/author}}
+        {{/get}}
+    {{/if}}
+{{/if}}
+
+{{^if default_author_in_ghost}}
+    {{> usercard
+        avatar=default_author_avatar
+        name=default_author_name
+        bio=default_author_bio
+        weibo=default_author_sns_weibo
+        zhihu=default_author_sns_zhihu
+        twitter=default_author_sns_twitter
+        twitter_static=true
+        instagrame=default_author_sns_instagrame
+        juejin=default_author_sns_juejin
+        github=default_author_sns_github
+        douban=default_author_sns_douban
+        facebook=default_author_sns_facebook
+        facebook_static=true
+        dribble=default_author_sns_dribble
+        uicn=default_author_sns_uicn
+        jianshu=default_author_sns_jianshu
+        medium=default_author_sns_medium
+        linkedin=default_author_sns_linkedin
+    }}
+{{/if}}

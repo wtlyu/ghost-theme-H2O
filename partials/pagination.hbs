@@ -1,0 +1,14 @@
+<nav class="pagination">
+    <input type="hidden" id="total_pages" value="{{pages}}">
+    <input type="hidden" id="current_pages" value="{{page}}">
+    <input type="hidden" id="base_url" value="/page/">
+    <div class="page-links">
+        {{#if prev}}
+            <a href="{{page_url prev}}" class="page-link" title="Previous Page">&laquo;</a>
+        {{/if}}
+        <div id="page-link-container"></div>
+        {{#if next}}
+        <a href="{{page_url next}}" class="page-link">&raquo;</a>
+        {{/if}}
+    </div>
+</nav>

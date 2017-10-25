@@ -1,0 +1,19 @@
+<div class="g-sidebar">
+    <section class="tag-card">
+        <div class="tag-name" rel="tag">{{tag.name}}</div>
+        <div class="description">
+            <p>{{tag.description}}</p>
+        </div>
+    </section>
+    {{#if recommend_tags}}
+        {{#get "tags" limit=recommend_condition_size}}
+            {{#if tags}}
+                <section class="tags-card">
+                    {{#foreach tags}}
+                        <a href="{{url}}" class="tag" >{{name}}</a>
+                    {{/foreach}}
+                </section>
+            {{/if}}
+        {{/get}}
+    {{/if}}
+</div>

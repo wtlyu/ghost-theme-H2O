@@ -1,0 +1,9 @@
+{{#if disable_ghost_author}}
+	{{> author_default}}
+{{else}}
+	{{#if author}}
+		{{> author_ghost}}
+	{{else}}
+		{{> author_default}}
+	{{/if}}
+{{/if}}

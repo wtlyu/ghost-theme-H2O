@@ -1,0 +1,35 @@
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}">
+    {{#if author}}
+        <meta name="author" content="{{author.name}}">
+    {{/if}}
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- Here is no keywords in Ghost. --}}
+    {{!-- <meta name="keywords"  content="{{ site.keyword }}"> --}}
+
+    {{!-- Open Graph --}}
+    <meta property="og:title" content="{{meta_title}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{url}}">
+    <meta property="og:description" content="{{meta_description}}">
+    <meta property="og:site_name" content="{{@blog.title}}">
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="{{asset "assets/css/github-markdown.css"}}">
+    <link rel="stylesheet" href="{{asset "assets/css/prism.css"}}">
+    <link rel="stylesheet" href="{{asset "assets/css/share.min.css"}}">
+    <link rel="stylesheet" href="{{asset "assets/css/app.min.css"}}">
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+</head>
